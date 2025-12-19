@@ -19,8 +19,11 @@ def client() -> Generator:
     with app.app_context():
         # Create the test database and apply Alembic migrations
         db.create_all()
-        alembic_config = Config("alembic.ini") 
-        command.upgrade(alembic_config, "head")
+        # Only run Alembic migrations if alembic.ini exists
+        if os.path.exists("alembic.ini"):
+            alembic_config = Config("alembic.ini")
+            alembic_config.set_main_option("sqlalchemy.url", app.config['SQLALCHEMY_DATABASE_URI'])
+            command.upgrade(alembic_config, "head")
 
     yield client
 

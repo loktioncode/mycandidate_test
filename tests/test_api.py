@@ -34,13 +34,26 @@ class TestWardsCandidatesEndpoint:
             
             # Insert at least 2 candidates for WARD001 with different types
             test_candidates = [
-               
+                {
+                    'full_names': 'Alice Smith',
+                    'ward_code': 'WARD001',
+                    'candidate_type': 'national',
+                    'locator': '{ward_code}',
+                    'party': 'Party A'
+                },
                 {
                     'full_names': 'Bob Johnson',
                     'ward_code': 'WARD001',
                     'candidate_type': 'national',
                     'locator': '{ward_code}',
                     'party': 'Party B'
+                },
+                {
+                    'full_names': 'Charlie Brown',
+                    'ward_code': 'WARD001',
+                    'candidate_type': 'provincial',
+                    'locator': '{ward_code}',
+                    'party': 'Party C'
                 },
                 {
                     'full_names': 'David Wilson',
