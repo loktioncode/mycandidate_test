@@ -17,7 +17,6 @@ def client() -> Generator:
     client = app.test_client()
 
     with app.app_context():
-        # Create the test database and apply Alembic migrations
         db.create_all()
         # Only run Alembic migrations if alembic.ini exists
         if os.path.exists("alembic.ini"):
