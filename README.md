@@ -235,13 +235,8 @@ The project includes a Jenkins CI/CD pipeline (`Jenkinsfile`) with:
 - ECS service updates
 
 ## DevOps Suggested Improvements
+ **Add resource limits to docker-compose.yml**: Set CPU and memory limits for all services to prevent resource exhaustion and improve stability.
 
-1. **Fix health check endpoint**: Update health check from `/health` to `/api/v1/health` in Dockerfile and docker-compose.yml to match the actual API endpoint.
+ **Implement structured logging**: Replace basic logging with structured JSON logging for better CloudWatch integration and log analysis.
 
-2. **Enable CSRF protection in production**: Currently `WTF_CSRF_ENABLED = False` in `main/app.py` - this is a security risk and should be enabled with proper configuration.
-
-3. **Add resource limits to docker-compose.yml**: Set CPU and memory limits for all services to prevent resource exhaustion and improve stability.
-
-4. **Implement structured logging**: Replace basic logging with structured JSON logging for better CloudWatch integration and log analysis.
-
-5. **Add Infrastructure as Code (IaC)**: Create Terraform or CloudFormation templates to automate AWS infrastructure provisioning and ensure environment parity.
+ **Add Infrastructure as Code (IaC)**: Create Terraform or CloudFormation templates to automate AWS infrastructure provisioning and ensure environment parity.
