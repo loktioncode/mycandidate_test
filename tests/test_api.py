@@ -32,13 +32,27 @@ class TestWardsCandidatesEndpoint:
                 VALUES (:full_names, :ward_code, :candidate_type, :locator, :party)
             """)
             
-            db.session.execute(insert_query, {
-                'full_names': 'Bob Johnson',
-                'ward_code': 'WARD002',
-                'candidate_type': 'provincial',
-                'locator': '{ward_code}',
-                'party': 'Party C'
-            })
+            # Insert at least 2 candidates for WARD001 with different types
+            test_candidates = [
+               
+                {
+                    'full_names': 'Bob Johnson',
+                    'ward_code': 'WARD001',
+                    'candidate_type': 'national',
+                    'locator': '{ward_code}',
+                    'party': 'Party B'
+                },
+                {
+                    'full_names': 'David Wilson',
+                    'ward_code': 'WARD002',
+                    'candidate_type': 'provincial',
+                    'locator': '{ward_code}',
+                    'party': 'Party D'
+                }
+            ]
+            
+            for candidate in test_candidates:
+                db.session.execute(insert_query, candidate)
             
             db.session.commit()
             
