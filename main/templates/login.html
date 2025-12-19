@@ -1,0 +1,10 @@
+{%extends 'layout.html'%}
+{%block content%}
+    <h2>Login</h2>
+    <form method="post" action="/login">
+        <label for="username">Secret Key:</label>
+        <input type="password" id="secret-key" name="secret_key" required>
+        <br>
+        <input type="submit" value="Login">
+    </form>
+{%endblock%}

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Find out who will be on the ballots on 29 May! South Africa, get easy-to-use information about all candidates for the 2024 National Elections">
+    <meta name="author" content="Open Cities Lab">
+    <meta name="twitter:card" content="summary" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://southafrica.mycandidate.africa/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MyCandidate SA" />
+    <meta property="og:title" content="Election Candidate Search Page: Find out who you can vote for" />
+    <meta property="og:description"
+        content="MyCandidate South Africa presents electoral candidate data in an accessible and reliable way so that you can make an informed decision at the polls. You can play an active role in South Africa's democracy!" />
+    <meta property="og:image"
+        content="https://ocl-design.s3.af-south-1.amazonaws.com/MyCandidate_South-Africa_Opengraph_general.png" />
+    <meta http-equiv="Cache-control" content="public">
+    <link rel="icon" href="/static/favicon.png">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+    <!-- <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        .navbar-default .navbar-toggle {
+            border-color: {{config.footer_colour}} !important;
+            background-color: {{config.footer_colour}} !important;
+            margin-top: 25px;
+        }
+
+        .tab-content .panel.panel-info #results a {
+            color: {{config.candidate_names_colour}};
+        }
+
+        .tab-content .panel.panel-info .btn.btn-primary {
+            border-color: {{config.find_candidates_button}};
+            background-color: {{config.find_candidates_button}};
+        }
+
+        .footer-below a,
+        .nav-heading .purple-tittle {
+            color: {{config.logo_colour}};
+        }
+
+        .footer-below .btn.btn-mini.btn-primary {
+            background: transparent;
+            padding: 12px;
+            color: {{config.logo_colour}};
+            border-color: {{config.logo_colour}};
+
+        }
+
+        .grey-wrapper .nav-tabs li.active a {
+            background-color: {{config.body_foreground_colour}};
+        }
+
+        @media (max-width: 768px) {
+            .navbar-collapse {
+                border-color: {{config.footer_colour}} !important;
+                background-color: {{config.footer_colour}};
+            }
+        }
+    </style>
+    <script>
+        window.Userback = window.Userback || {};
+        Userback.access_token = 'A-ha8YH6mRJBS2dBoMh4GPd5I1qncr7GqYxyNMjBOSgrHO5Z1b44';
+        // identify your logged-in users (optional)
+        Userback.user_data = {
+            id: "123456", // example data
+            info: {
+                name: "someone", // example data
+                email: "someone@example.com" // example data
+            }
+        };
+        (function (d) {
+            var s = d.createElement('script'); s.async = true;
+            s.src = 'https://static.userback.io/widget/v1.js';
+            (d.head || d.body).appendChild(s);
+        })(document);
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DX0JPTGX27"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-DX0JPTGX27');
+        gtag('config', 'AW-16549476289');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MZXRHQWB');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body style="background-color: {{config.footer_colour}};">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZXRHQWB" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <nav class="navbar navbar-default nav-heading "
+        style="margin-bottom: 0; border-color: {{config.nav_bars_colour}}; background-color: {{config.nav_bars_colour}};">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <span class="light-title">MyCandidate</span><br>
+                <span class="purple-tittle" style="color:{{config.logo_colour}} ;">{{config.title}}</span>
+            </a>
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/" style="font-weight: 700;">Search</a></li>
+                {#<li><a href="/insights">Insights</a></li>#}
+              <li><a href="https://mycandidatesa.webflow.io/">About</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    {% set unique_candidate_types = [] %}
+    <div class="grey-wrapper" style="background-color: {{config.body_background_colour}};">
+        <ul class="nav nav-tabs" id="candidate-type-list ">
+            {% for d in data %}
+            <li id="nav-{{loop.index}}" class=" {% if area_name == d.candidate_type %} active {% endif %}"
+                style="width: {{100/data|length}}%;"><a data-toggle="tab"
+                    href="#{{d.candidate_type}}">{{d.candidate_type.replace('_', ' ').title()}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="tab-content" style="background-color: {{config.body_foreground_colour}};">
+        <div class="container">
+            <div class="row">
+                {% for d in data %}
+                <div id="{{d.candidate_type}}"
+                    class=" tab-pane fade {% if area_name == d.candidate_type  %} active in {% endif %}">
+                    <div class="panel panel-info" style="background-color: {{config.body_foreground_colour}};">
+                        <div class="panel-heading">Find out who is contesting</div>
+                        <div class="panel-body">
+                            <form action="/" method="POST">
+                                {{ d.form.csrf_token }}
+                                {{ d.form.hidden_tag() }}
+                                {% set id = 'js-example-basic-single-' + loop.index|string %}
+                                <div class="form-group">
+                                    <label class="control-label" for="address">Search:</label>
+                                    <div class="input-group">
+                                        {{ d.form.ds_id(class="form-control", id=id ) }}
+                                        <input type="text" name="candidate_type" value="{{d.candidate_type}}" hidden>
+                                        <span class="input-group-btn">
+                                            <button type="submit" class="btn btn-primary" id="submit-btn"
+                                                style="background-color: {{config.find_candidates_button}};">Find
+                                                Candidates</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                            <p class="description">
+                                This information aligns with the <a target="_blank"
+                                    href="https://www.elections.org.za/pw/Documents/Outreach/Factsheets/IEC%203%20Ballots%20Factsheet.pdf">three
+                                    ballots you will receive on election day</a>, which will only show the political
+                                party name and party leader.
+                                Click the + to see additional eligible candidates.<br><br>
+                                <a target="_blank"
+                                    href="https://www.opencitieslab.org/blogs/south-africas-new-three-ballot-system-explained-deciding-who-runs-south-africa">Learn
+                                    about the Three Ballot System</a>
+                            </p>
+                            {% if candidates and candidate.candidate_type == d.candidate_type %}
+                            <div id="results">
+                                {% if d.candidate_type %}
+                                {% if d.candidate_type == 'national_regional' or d.candidate_type == 'provincial'%}
+                                <h2>{{ d.candidate_type.replace('_', ' ').title() }}: {{ candidate.list_type }}</h2>
+                                <a href="http://www.google.com/search?q={{ candidate.list_type }}" class="mb-3"
+                                    target="_blank">Get more information for: {{ candidate.list_type }}</a>
+                                {% endif %}
+                                <h2>Your candidates are:</h2>
+                                <div class="accordion" id="accordionExample">
+                                </div>
+                                {% for item in presidential_candidates %}
+                                <div class="card">
+                                    {% if presidential_candidates%}
+                                    <div class="card-header" id="headingOne">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                                data-target="#collapse{{loop.index}}" aria-expanded="true"
+                                                aria-controls="collapse{{loop.index}}"
+
+                                                style="padding-left: 0; text-align: left; width: 100%; white-space: initial;padding-right: 30px;">
+                                                <div class="item">
+                                                    <a target="_blank"
+                                                        href="http://www.google.com/search?q={{ item.full_names }} {{ item.surname }}"
+                                                        style="text-decoration: underline;">
+                                                        {{ item.full_names }} {{ item.surname }}
+                                                    </a><!--(Sex: {{ item.gender }})-->
+                                                    {%set item_name = item.locator.strip("{}").split(',')[0] %}
+                                                    {%set item_code = item.locator.strip("{}").split(',')[1] %}
+                                                    {% if item.party %} - <a>
+                                                        {{item.party}}
+                                                    </a>{% endif %}
+                                                    (Age: {{ item.age }})
+                                                </div>
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    {% endif %}
+                                    <div id="collapse{{loop.index}}" class="collapse" aria-labelledby="headingOne"
+                                        data-parent="#accordionExample">
+                                        {% if candidates %}
+                                        <div class="card-body">
+                                            <p>Eligible Candidates within the party:</p>
+                                            <ul>
+                                                {%for can in candidates%}
+                                                {% if can.party == item.party %}
+                                                <li>
+                                                    <div class="item">
+                                                        <a target="_blank"
+                                                            href="http://www.google.com/search?q={{ can.full_names }} {{ can.surname }}"
+                                                            style="text-decoration: underline;">
+                                                            {{ can.full_names }} {{ can.surname }}
+                                                        </a>
+                                                        (Age: {{ can.age }})
+                                                    </div>
+                                                </li>
+                                                {% endif %}
+                                                {%endfor%}
+                                            </ul>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock content %}
+    <div class="footer-below text-center" style="background-color: {{config.footer_colour}};">
+        <div class="container">
+            <div class="row">
+                <div class="row text-center mt-2">
+                    <a href="#" class="btn btn-mini btn-primary" data-toggle="modal" data-target="#basicModal">Embed
+                        this
+                        widget</a>
+                </div>
+                <br>
+                <div class="col-lg-12 font-style" style="">
+                    A Product of <a target="_blank" href="https://opencitieslab.org">Open Cities Lab</a> </br></br>
+
+                    <p>We respect your privacy!</p>
+
+                    <span>
+                        The MyCandidate tool does not store any user information, including your address.</br></br>
+
+                        We are still building and improving the platform
+                        and your feedback will be much appreciated.
+                    </span>
+
+                </div>
+                <br>
+                <div class="col-lg-12 font-style" style="margin-top: 30px;">
+                    <p style="margin-bottom: 5px;">Disclaimer</p>
+                    <span>
+                        The candidate information on this platform <a target="_blank"
+                            href="https://www.elections.org.za/pw/Parties-And-Candidates/Candidates-List">comes from the
+                            IEC website</a> and is for general information only. We try to keep it accurate,
+                        but it may have errors or missing details due to issues with the original data. We are not
+                        responsible for any mistakes or losses from using this data, you use it at your own risk.
+                    </span>
+                </div>
+                <div class="col-lg-12 font-style" style="margin-top: 30px;">
+                    <a target="_blank"
+                        href="https://drive.google.com/file/d/1EmvJ1gPPHrxbDTOYramAPVTi1i0i9hkH/view">Terms of Use</a>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Embed Code</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="results">
+                        <p><code id="clipboardExample1">
+                        &lt;iframe src="{{ domain }}" style="border: none;width: 100%; height:
+                        400px"&gt;&lt;/iframe&gt;
+                    </code></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- Custom styles for this template -->
+<!-- <link href="static/css/voting.css" rel="stylesheet"> -->
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+    {% for d in data %}
+    $('#js-example-basic-single-{{loop.index}}').select2({
+        placeholder: 'Select an option'
+    });
+    {% endfor %}
+</script>
+</html>

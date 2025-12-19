@@ -1,0 +1,85 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mycandidate-web
+    ports:
+      - "5001:5000"
+    environment:
+      - FLASK_ENV=development
+      - SECRET_KEY=${SECRET_KEY:-dev-secret-key-change-in-production}
+      - DATABASE_URL=postgresql://mycandidate:mycandidate@db:5432/mycandidate
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./main:/app/main
+      - ./main/data:/app/main/data
+      - ./tests:/app/tests
+    # Create development.cfg on startup if it doesn't exist
+    command: sh -c "if [ ! -f /app/main/config/development.cfg ]; then cp /app/main/config/example.development.cfg /app/main/config/development.cfg; fi && gunicorn --bind 0.0.0.0:5000 --workers 4 --timeout 120 app:app"
+    networks:
+      - mycandidate-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+
+  db:
+    image: postgres:12.6
+    container_name: mycandidate-db
+    environment:
+      - POSTGRES_USER=mycandidate
+      - POSTGRES_PASSWORD=mycandidate
+      - POSTGRES_DB=mycandidate
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - mycandidate-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mycandidate"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: mycandidate-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - mycandidate-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  mycandidate-network:
+    driver: bridge
+

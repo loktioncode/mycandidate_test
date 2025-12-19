@@ -1,0 +1,57 @@
+{%extends 'layout.html'%}
+{%block content%}
+<div class="main">
+    <h2>Home Page</h2>
+    <div class="form-control">
+        <form action="{{ form_url }}" method="POST">
+            {{ candidate_form.hidden_tag() }}
+            <div class="form-group">
+                <label class="control-label" for="address">Search by authority:</label>
+                <div class="input-group">
+                    {{ candidate_form.ds_id(class="form-control", id="js-example-basic-single") }}
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary">Find Candidates</button>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+    {% if final_candidates %}
+    <table>
+        <h2>Candidates</h2>
+        <tr>
+            <th>Type</th>   
+            <th>Surname</th>
+            <th>Full Names</th>
+            <th>Gender</th>
+            <th>Race</th>
+            <th>Political Party</th>
+            <th>Short Name</th>
+            <th>Province</th>
+            <th>Province Code</th>
+            <th>Ward</th>
+            <th>Ward Number</th>
+        </tr>
+        {% for item in final_candidates %}
+        <tr>
+            {% if item.person %}
+            <td>{{item.candidate_type}}</td>
+            <td>{{item.person.surname}}</td>
+            <td>{{item.person.name}}</td>
+            <td>{{item.person.gender}}</td>
+            <td>{{item.person.race}}</td>
+            <td>{{item.person.party.name}}</td>
+            <td>{{item.person.party.abbv}}</td>
+            {% endif %}
+            {% if item.ward %}
+            <td>{{item.ward.province.name}}</td>
+            <td>{{item.ward.province.code}}</td>
+            <td>{{item.ward.name}}</td>
+            <td>{{item.ward.code}}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+      </table>
+    {% endif %}
+</div>
+{%endblock%}

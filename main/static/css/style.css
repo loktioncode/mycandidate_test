@@ -1,0 +1,375 @@
+body{
+    background-color: #2F3542;
+}
+.nav-heading{
+    background-color: #2F3542;
+    min-height: 90px;
+    /* padding: 15px auto; */
+}
+.nav-heading .navbar-brand{
+    height: unset;
+    padding-left: 0;
+}
+.nav-heading .navbar-brand span{
+    padding-left: 0;
+}
+.nav-heading .light-title{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 21px;
+    font-weight: 400;
+    letter-spacing: 0.36px;
+    line-height: 25.6px;
+    color: #F9FFFE;
+    margin-bottom: 0;
+}
+
+.nav-heading .purple-tittle{
+    margin-top: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.36px;
+    line-height: 31.69px;
+}
+
+.grey-wrapper{
+    background-color: #868C98;
+    padding-top: 30px;
+}
+.grey-wrapper .nav-tabs{
+    border: none;
+}
+.grey-wrapper .nav-tabs li{
+    width: 50%;
+    margin-bottom: -2px;
+    /* white-space: nowrap;
+    overflow: hidden; */
+    text-overflow: ellipsis;
+}
+
+.grey-wrapper .nav-tabs li a{
+    font-family: 'Montserrat';
+    font-size: 22px;
+    line-height: 24px;
+    text-align: center;
+    font-weight: 400;
+    color: #ACACAC;
+}
+
+.grey-wrapper .nav-tabs li.active {
+    background-color: #33404E;
+    
+}
+.grey-wrapper .nav-tabs li.active a {
+    color: #FFFFFF ;
+    font-weight: 600;
+    background-color: #33404E;
+    border: none;
+}
+
+.tab-content{
+    background-color: #33404E;
+    padding-top: 30px;
+    padding-bottom: 60px;
+    min-height: calc(100vh - 294px - 75px - 78px);
+}
+.panel.panel-info .description{
+    font-family: 'Montserrat';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20.8px;
+    letter-spacing: 0.5471879839897156px;
+    color: #FFFFFF;
+}
+.tab-content .panel-heading{
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-style: italic;
+    font-size: 32px;
+    line-height: 32px;
+    background: transparent;
+    color: #FFFFFF;
+    border: none;
+}
+
+.tab-content .panel.panel-info{
+    background-color: #33404E;
+    border: none;
+}
+
+.tab-content .panel.panel-info .control-label{
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #FFFFFF;
+}
+
+.select2-selection__renderedselect2-selection__placeholder{
+    color: #878787;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+}
+.tab-content .panel.panel-info .select2-container .select2-selection--single .select2-selection__rendered{
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 500;
+}
+#js-example-basic-single{
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 500;
+    height: 42px;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    padding: 5px 0;
+}
+.tab-content .panel.panel-info .select2-container--default .select2-selection--single{
+    height: 42px;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    padding: 5px 0;
+    border-color: #FFF;
+}
+
+.tab-content .panel.panel-info .btn.btn-primary{
+    color: #F0E9F9 !important;
+    padding: 11px 14px;
+    color: #878787;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.tab-content .panel.panel-info .select2-container--default .select2-selection--single .select2-selection__arrow{
+    top: 8px;
+}
+
+.tab-content .panel.panel-info .select2-search__field{
+    border: 1px solid #878787;
+    border-radius: 1px;
+}
+
+.select2-results__options .select2-results__option{
+    color: #33404E;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable{
+    background-color: #FFFFFF !important;
+    color: #33404E !important;
+}
+.tab-content .panel.panel-info #results h2{
+    color: #FFFFFF;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 0px;
+}
+
+.tab-content .panel.panel-info #results a{
+    font-family: 'Helvetica Neue';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.tab-content .panel.panel-info #results .item
+{
+    color: #FFFFFF;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 2px;
+}
+.tab-content .panel.panel-info #results .item a
+{
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.footer-below {
+    background-color: #2F3542;
+    padding: 30px 0;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+.footer-below .btn.btn-mini.btn-primary{
+    color: #FFFFFF;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 12px;
+    text-decoration: none;
+}
+.footer-below .font-style{
+    color: #FFFFFF;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 12px;
+}
+.footer-below a{
+    text-decoration: underline;
+}
+
+.footer-below .font-style p{
+    color: #FFFFFF;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.21px;
+    line-height: 18.2px;
+}
+.footer-below .font-style  span{
+    color: #FFFFFF;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.25px;
+    line-height: 16px;
+}
+
+.footer-below .font-style span i{
+    font-style: italic;
+}
+.tab-content .tab-pane.fade{
+    display: none;
+}
+.tab-content .tab-pane.fade.active.in{
+    display: block;
+}
+
+.tab-content .select2.select2-container{
+    width: 100% !important;
+}
+.nav-heading .container{
+    position: relative;
+}
+.nav-heading .container .trigger{
+    position: absolute;
+    width: 200px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+.navbar-default .navbar-nav>li>a{
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+}
+.navbar-default .navbar-nav>li>a:hover{
+    color: #fff;
+}
+.panel .description{
+    font-family: 'Montserrat';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20.8px;
+    letter-spacing: 0.5471879839897156px;
+    text-align: left;
+    margin-top: 30px;
+
+}
+.panel .description a{
+    color: #F2AA71;
+    text-decoration: underline;
+}
+@media (max-width: 768px) {
+    .grey-wrapper .nav-tabs li.active a{
+        min-height: 70px;
+    }
+    .grey-wrapper .nav-tabs li a{
+        min-height: 70px;
+    }
+    .nav-heading .light-title, .nav-heading .purple-tittle{
+        padding-left: 20px;
+    }
+    .panel-body, .panel-heading{
+        padding: 20px;
+    }
+    /* .panel .description{
+        padding: 20px;
+    } */
+
+    .nav-heading .navbar-brand{
+        padding-left: 6px;
+    }
+    .navbar-collapse{
+        position: absolute;
+        width: 101%;
+        z-index: 1;
+        margin: 0;
+        border: none;
+        left: 13px;
+        right: 0;
+        min-height: 101px;
+    }
+    .navbar-default .navbar-toggle .icon-bar{
+        background-color: #FFF !important;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .nav-heading .navbar-right{
+        margin-top: 18px;
+    }
+    .panel-body, .panel-heading{
+        padding-left: 0;
+    }
+    .navbar-default .navbar-collapse, .navbar-default .navbar-form{
+        padding-right: 0;
+    }
+}
+button.btn.btn-link{
+    position: relative;
+}
+button.btn.btn-link.collapsed::after{
+    content: url('/static/plus.svg');
+    height: 20px;
+    width: 20px;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 6px;
+}
+
+button.btn.btn-link::after{
+    content: url('/static/minus.svg');
+    height: 20px;
+    width: 20px;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 6px;
+}
+button.btn.btn-link:focus, button.btn.btn-link:hover{
+    outline: none;
+    border-color: transparent;
+}
+.collapse .card-body {
+    color: #FFFFFF;
+}
+.collapse .card-body p{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #FFFFFF;
+}
+.collapse .card-body ul{
+    list-style: none;
+}
+.collapse .card-body ul li{
+    margin-left: 5px;
+}
