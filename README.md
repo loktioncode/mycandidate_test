@@ -94,6 +94,18 @@ docker-compose exec db psql -U mycandidate -d mycandidate
 podman-compose exec db psql -U mycandidate -d mycandidate
 ```
 
+### Running Tests in Containers
+
+Run tests in the containerized environment:
+
+```bash
+# For Docker
+docker-compose exec web pytest tests/ -v
+
+# For Podman
+podman-compose exec web pytest tests/ -v
+```
+
 ### Building the Docker/Podman Image
 
 To build the image manually:
