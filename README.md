@@ -119,8 +119,6 @@ Key environment variables (can be set in `.env` file or `docker-compose.yml`):
 
 The MyCandidate application provides a REST API for accessing candidate data.
 
-**Full API Documentation**: See [API_DOCUMENTATION.md](API_DOCUMENTATION.md)
-
 ### Quick API Examples
 
 **Health Check**:
@@ -199,12 +197,6 @@ Install Redis:
 
 **Note**: If using Docker Compose, Redis is automatically configured and available at `redis://redis:6379/0`
 
-## Additional Documentation
-
-- **API Documentation**: [API_DOCUMENTATION.md](API_DOCUMENTATION.md) - Complete REST API reference
-- **AWS Architecture**: [AWS_ARCHITECTURE.md](AWS_ARCHITECTURE.md) - AWS deployment architecture and design
-- **DevOps Improvements**: [DEVOPS_IMPROVEMENTS.md](DEVOPS_IMPROVEMENTS.md) - DevOps best practices and security scanning
-
 ## AWS Deployment
 
 For production deployment on AWS, see [AWS_ARCHITECTURE.md](AWS_ARCHITECTURE.md) for:
@@ -225,4 +217,16 @@ The project includes a Jenkins CI/CD pipeline (`Jenkinsfile`) with:
 - AWS ECR deployment
 - ECS service updates
 
-See [DEVOPS_IMPROVEMENTS.md](DEVOPS_IMPROVEMENTS.md) for details on the CI/CD pipeline and security scanning integration.
+## DevOps Improvements
+
+Comments or suggestions on DevOps improvements for this codebase.
+
+1. **Fix health check endpoint**: Update health check from `/health` to `/api/v1/health` in Dockerfile and docker-compose.yml to match the actual API endpoint.
+
+2. **Enable CSRF protection in production**: Currently `WTF_CSRF_ENABLED = False` in `main/app.py` - this is a security risk and should be enabled with proper configuration.
+
+3. **Add resource limits to docker-compose.yml**: Set CPU and memory limits for all services to prevent resource exhaustion and improve stability.
+
+4. **Implement structured logging**: Replace basic logging with structured JSON logging for better CloudWatch integration and log analysis.
+
+5. **Add Infrastructure as Code (IaC)**: Create Terraform or CloudFormation templates to automate AWS infrastructure provisioning and ensure environment parity.
