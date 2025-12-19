@@ -1,4 +1,4 @@
-# My Candidate flask template
+# My Candidate App
 
 ## Technical Specs for QA
 * Python 3.10.8 / 3.10.9
