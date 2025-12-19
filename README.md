@@ -217,9 +217,7 @@ The project includes a Jenkins CI/CD pipeline (`Jenkinsfile`) with:
 - AWS ECR deployment
 - ECS service updates
 
-## DevOps Improvements
-
-Comments or suggestions on DevOps improvements for this codebase.
+## DevOps Suggested Improvements
 
 1. **Fix health check endpoint**: Update health check from `/health` to `/api/v1/health` in Dockerfile and docker-compose.yml to match the actual API endpoint.
 
