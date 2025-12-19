@@ -76,18 +76,36 @@ pipeline {
         stage('Unit Tests') {
             steps {
                 script {
-                    docker.image("python:${PYTHON_VERSION}-slim").inside {
                     sh '''
-                        pip install --quiet -r requirements.txt
-                        pip install --quiet pytest pytest-cov
-                        export PYTHONPATH=${WORKSPACE}
-                        pytest tests/ -v --cov=main --cov-report=xml --cov-report=html --cov-report=term
+                        # Start database and redis services
+                        docker-compose up -d db redis
+                        
+                        # Wait for services to be healthy
+                        echo "Waiting for database and redis to be ready..."
+                        timeout=60
+                        elapsed=0
+                        while [ $elapsed -lt $timeout ]; do
+                            if docker-compose exec -T db pg_isready -U mycandidate > /dev/null 2>&1 && \
+                               docker-compose exec -T redis redis-cli ping > /dev/null 2>&1; then
+                                echo "Services are ready!"
+                                break
+                            fi
+                            sleep 2
+                            elapsed=$((elapsed + 2))
+                        done
+                        
+                        # Initialize database if needed
+                        docker-compose run --rm web python rebuild_db.py || true
+                        
+                        # Run tests in web container
+                        docker-compose run --rm -e FLASK_ENV=testing web \
+                            pytest tests/ -v --cov=main --cov-report=xml --cov-report=html --cov-report=term
                     '''
-                    }
                 }
             }
             post {
                 always {
+                    sh 'docker-compose down -v || true'
                     publishTestResults testResultsPattern: '**/test-results.xml'
                     publishCoverage adapters: [
                         coberturaAdapter('**/coverage.xml')
