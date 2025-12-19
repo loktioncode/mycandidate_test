@@ -5,8 +5,6 @@
 * postgresql 12.6.* or later
 * Redis 7.x or later
 
-## Website Environments
-- [Production Environment](https://southafrica.mycandidate.africa/)
 
 ## Quick Start with Docker/Podman
 
