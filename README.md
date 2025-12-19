@@ -53,7 +53,6 @@ The easiest way to run MyCandidate is using Docker Compose (or Podman Compose), 
 5. **Access the application**:
    - Web interface: http://localhost:5001
    - API health check: http://localhost:5001/api/v1/health
-   - API documentation: See [API_DOCUMENTATION.md](API_DOCUMENTATION.md)
 
 ### Docker/Podman Compose Services
 
